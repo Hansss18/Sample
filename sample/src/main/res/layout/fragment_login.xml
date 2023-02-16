@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_margin_large"
+        android:layout_gravity="center"
+        style="@style/Widget.MaterialComponents.CardView">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_gravity="center"
+                android:src="@mipmap/ic_launcher"
+                android:layout_marginTop="@dimen/dimen_margin_large"
+                android:layout_marginBottom="@dimen/dimen_margin_medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/InputLayoutOutlined"
+                android:layout_marginTop="@dimen/dimen_margin_medium"
+                android:layout_marginEnd="@dimen/dimen_margin_medium"
+                android:layout_marginStart="@dimen/dimen_margin_medium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <io.github.ketzalv.validationedittext.ValidationEditText
+                    android:id="@+id/edit_email"
+                    style="@style/EditText.Validation"
+                    android:hint="Email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionNext"
+                    app:format="email"
+                    app:regularExpression="[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}\\@[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}(\\.[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25})+"
+                    app:errorEmptyMessage="Empty Email"
+                    app:errorMessage="@string/custom_email_message" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/InputLayoutOutlined"
+                android:layout_marginEnd="@dimen/dimen_margin_medium"
+                android:layout_marginStart="@dimen/dimen_margin_medium"
+                android:layout_marginTop="@dimen/dimen_margin_medium"
+                app:passwordToggleEnabled="true"
+                app:errorIconDrawable="@null"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <io.github.ketzalv.validationedittext.ValidationEditText
+                    android:id="@+id/edit_password"
+                    style="@style/EditText.Validation"
+                    android:hint="Password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionDone"
+                    app:format="password"
+                    app:regularExpression="((?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{6,20})"
+                    app:errorEmptyMessage="Empty Password"
+                    app:errorMessage="Please type password with at lease one Cap letter, one number and minim 8 characters"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_log_in"
+                style="@style/Button"
+                android:layout_marginTop="64dp"
+                android:layout_marginBottom="@dimen/dimen_margin_medium"
+                android:layout_marginStart="@dimen/dimen_margin_medium"
+                android:layout_marginEnd="@dimen/dimen_margin_medium"
+                android:text="Log in"
+                android:textAllCaps="false"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</FrameLayout>
